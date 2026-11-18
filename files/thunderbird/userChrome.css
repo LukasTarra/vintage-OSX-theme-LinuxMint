@@ -1,0 +1,70 @@
+/* OS X Leopard look for Thunderbird's own UI.
+   UNTESTED draft: Thunderbird's internal selectors and variables change between
+   releases. If something doesn't apply, inspect it with the Browser Toolbox
+   (set devtools.chrome.enabled and devtools.debugger.remote-enabled to true,
+   then Ctrl+Shift+Alt+I) and adjust. Delete this file to undo. */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:root {
+  --toolbar-color: #000000;
+  --toolbar-bgcolor: #E0DEE1;
+  --toolbarbutton-hover-background: transparent;
+  --toolbarbutton-active-background: transparent;
+  --arrowpanel-background: #FFFFFF;
+  --arrowpanel-color: #000000;
+  --sidebar-background-color: #EDEDED;
+  --sidebar-text-color: #000000;
+  --layout-background-0: #EDEDED;
+  --layout-background-1: #FFFFFF;
+  --layout-background-2: #F2F2F2;
+  --layout-color-1: #000000;
+  --selected-item-color: #FFFFFF;
+  --selected-item-background: #2563AE;
+}
+
+/* Brushed-metal toolbars */
+#mail-toolbox,
+#navigation-toolbox,
+#tabs-toolbar,
+toolbar#mail-bar3,
+toolbar#toolbar-menubar {
+  background-color: #E0DEE1 !important;
+  background-image: linear-gradient(to bottom, #CAC8CA, #A8A7A9) !important;
+  border-bottom: 1px solid #929092 !important;
+  color: #000000 !important;
+}
+#mail-toolbox:-moz-window-inactive,
+#navigation-toolbox:-moz-window-inactive {
+  background-image: linear-gradient(to bottom, #F9F9F9, #E1E1E1) !important;
+}
+
+/* Pill toolbar buttons */
+toolbarbutton.toolbarbutton-1,
+.toolbarbutton-1 {
+  border: 1px solid transparent !important;
+  border-radius: 40px !important;
+}
+toolbarbutton.toolbarbutton-1:hover:not([disabled]),
+.toolbarbutton-1:hover:not([disabled]) {
+  border-color: #808080 !important;
+  background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6 30%, #EDEDED 40%, #FFFFFF 90%) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+toolbarbutton.toolbarbutton-1:hover:active:not([disabled]),
+.toolbarbutton-1[open],
+.toolbarbutton-1[checked] {
+  color: #FFFFFF !important;
+  border-color: #6B6B6B !important;
+  background-color: #808080 !important;
+  background-image: none !important;
+  box-shadow: inset 0 2px 3px 1px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Aqua blue selection in the folder and message lists */
+#folderTree li.selected > .container,
+#threadTree tr[is="thread-row"].selected,
+tree > treechildren::-moz-tree-row(selected, focus) {
+  background-image: linear-gradient(to bottom, #3690FC, #2C77D1) !important;
+  color: #FFFFFF !important;
+}

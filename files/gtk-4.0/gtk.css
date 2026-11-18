@@ -1,0 +1,327 @@
+/* ==========================================================================
+   OS-X-Leopard-1.2 for GTK4 / libadwaita apps (GNOME Calendar, Celluloid, ...)
+
+   Loaded at USER priority, so it overrides libadwaita's own stylesheet.
+   Values are copied from ~/.themes/OS-X-Leopard-1.2/gtk-3.20/gtk.css.
+   GTK4 has no reliable shade()/mix(), so every colour is precomputed.
+   Your previous version is saved next to this file as gtk.css.pre-leopard.bak
+   ========================================================================== */
+
+/* ---- 1. Palette (the theme's real values: bg #EDEDED, text #000, accent #2563AE) ---- */
+@define-color window_bg_color #EDEDED;
+@define-color window_fg_color #000000;
+@define-color view_bg_color #FFFFFF;
+@define-color view_fg_color #000000;
+@define-color headerbar_bg_color #E0DEE1;
+@define-color headerbar_fg_color #000000;
+@define-color headerbar_border_color #929092;
+@define-color headerbar_backdrop_color #EDEDED;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.25);
+@define-color card_bg_color #FFFFFF;
+@define-color card_fg_color #000000;
+@define-color card_shade_color rgba(0, 0, 0, 0.07);
+@define-color dialog_bg_color #EDEDED;
+@define-color dialog_fg_color #000000;
+@define-color popover_bg_color #FFFFFF;
+@define-color popover_fg_color #000000;
+@define-color shade_color rgba(0, 0, 0, 0.07);
+@define-color scrollbar_outline_color #FFFFFF;
+@define-color accent_bg_color #2563AE;
+@define-color accent_fg_color #FFFFFF;
+@define-color accent_color #2563AE;
+@define-color destructive_bg_color #CC0000;
+@define-color destructive_fg_color #FFFFFF;
+@define-color destructive_color #CC0000;
+@define-color success_bg_color #4ED464;
+@define-color success_color #4ED464;
+@define-color warning_bg_color #FF9900;
+@define-color warning_color #FF9900;
+@define-color error_bg_color #CC0000;
+@define-color error_color #CC0000;
+
+/* ---- 2. Aqua pill buttons ---- */
+button {
+  color: #000000;
+  border: 1px solid #808080;
+  border-radius: 40px;
+  background-color: #FFFFFF;
+  background-image: linear-gradient(to bottom, #FFFFFF, #F7F7F7 30%, #EDEDED 40%, #FFFFFF 90%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+button:hover {
+  background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6 30%, #EDEDED 40%, #FFFFFF 90%);
+}
+button:active,
+button:checked {
+  color: #FFFFFF;
+  border-color: #6B6B6B;
+  background-color: #808080;
+  background-image: none;
+  box-shadow: inset 0 2px 3px 1px rgba(0, 0, 0, 0.45), inset 0 1px #535353;
+}
+button:disabled {
+  color: #7F7F7F;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+button:backdrop {
+  color: #8C8C8C;
+  background-color: #F2F2F2;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Flat buttons stay invisible until hovered, like the GTK3 theme */
+button.flat {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+button.flat:hover {
+  color: #000000;
+  border-color: #808080;
+  background-color: #FFFFFF;
+  background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6 30%, #EDEDED 40%, #FFFFFF 90%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+button.flat:active,
+button.flat:checked {
+  color: #FFFFFF;
+  border-color: #6B6B6B;
+  background-color: #808080;
+  background-image: none;
+  box-shadow: inset 0 2px 3px 1px rgba(0, 0, 0, 0.45), inset 0 1px #535353;
+}
+
+/* Linked button groups: pill only at the outer ends */
+.linked > button,
+.linked > menubutton > button,
+.linked > dropdown > button {
+  border-radius: 0;
+}
+.linked > button:first-child,
+.linked > menubutton:first-child > button,
+.linked > dropdown:first-child > button {
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+.linked > button:last-child,
+.linked > menubutton:last-child > button,
+.linked > dropdown:last-child > button {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Blue "default" button */
+button.suggested-action {
+  color: #000000;
+  border-color: #6B6B6B;
+  border-top-color: #2563AE;
+  background-color: #CBCBCB;
+  background-image: linear-gradient(to bottom, #B6C7E0, #95B9DF 32%, #689DD3 38%, #BAE3F6);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+button.suggested-action:hover {
+  background-image: linear-gradient(to bottom, #C4D3E8, #A3C3E6 32%, #7BAADB 38%, #C8EAF9);
+}
+button.suggested-action:active,
+button.suggested-action:checked {
+  background-image: linear-gradient(to bottom, #8EBBE8, #689DD3);
+  box-shadow: inset 0 2px 3px 1px rgba(0, 0, 0, 0.45);
+}
+
+/* Red button */
+button.destructive-action {
+  color: #FFFFFF;
+  border-color: #6B0000;
+  background-color: #CC0000;
+  background-image: linear-gradient(to bottom, #CC0000, #B20000 30%, #B80000 40%, #CC0000 90%);
+}
+button.destructive-action:hover {
+  background-image: linear-gradient(to bottom, #E00000, #C40000 30%, #CC0000 40%, #E00000 90%);
+}
+
+/* ---- 3. Brushed-metal headerbar ---- */
+headerbar {
+  min-height: 30px;
+  color: #000000;
+  background-color: #E0DEE1;
+  background-image: linear-gradient(to bottom, #CAC8CA, #A8A7A9);
+  border-bottom: 1px solid #929092;
+  box-shadow: none;
+}
+headerbar:backdrop {
+  color: #8C8C8C;
+  background-color: #EDEDED;
+  background-image: linear-gradient(to bottom, #F9F9F9, #E1E1E1);
+  border-bottom-color: #D5D5D5;
+}
+headerbar .title,
+headerbar windowtitle {
+  color: #000000;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* ---- 4. Aqua blue selection (lists, sidebars, popover menus) ---- */
+row:selected,
+.navigation-sidebar > row:selected,
+treeview.view:selected,
+columnview > listview > row:selected,
+popover modelbutton:hover,
+popover.menu modelbutton:hover {
+  color: #FFFFFF;
+  background-color: #2563AE;
+  background-image: linear-gradient(to bottom, #3690FC, #2C77D1);
+}
+row:selected label,
+row:selected image {
+  color: #FFFFFF;
+}
+
+/* ---- 5. Leopard window buttons (close / minimise / maximise) ----
+   The theme's PNGs are 20x20, so the buttons must be 20x20 too (they were 14x14
+   before, which cropped the artwork). Pressed, backdrop and restore states added.
+   Layout (close first, on the left) comes from ~/.config/gtk-4.0/settings.ini. */
+windowcontrols > button {
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0;
+  margin: 0 2px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+}
+windowcontrols > button image { opacity: 0; }
+windowcontrols > button:active { background-color: transparent; box-shadow: none; }
+windowcontrols > button.close    { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/close-normal.png"); }
+windowcontrols > button.minimize { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/minimize-normal.png"); }
+windowcontrols > button.maximize { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/maximize-normal.png"); }
+window.maximized windowcontrols > button.maximize { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/restore-normal.png"); }
+windowcontrols > button.close:hover    { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/close-hover.png"); }
+windowcontrols > button.minimize:hover { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/minimize-hover.png"); }
+windowcontrols > button.maximize:hover { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/maximize-hover.png"); }
+window.maximized windowcontrols > button.maximize:hover { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/restore-hover.png"); }
+windowcontrols > button.close:active    { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/close-active.png"); }
+windowcontrols > button.minimize:active { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/minimize-active.png"); }
+windowcontrols > button.maximize:active { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/maximize-active.png"); }
+window.maximized windowcontrols > button.maximize:active { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/restore-active.png"); }
+windowcontrols > button.close:backdrop    { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/close-backdrop.png"); }
+windowcontrols > button.minimize:backdrop { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/minimize-backdrop.png"); }
+windowcontrols > button.maximize:backdrop { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/maximize-backdrop.png"); }
+window.maximized windowcontrols > button.maximize:backdrop { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/restore-backdrop.png"); }
+
+/* ---- 6. Window shape: Aqua windows are rounded on top only ---- */
+window.csd,
+window.csd decoration { border-radius: 6px 6px 0 0; }
+window.csd.maximized,
+window.csd.tiled,
+window.csd.fullscreen,
+window.csd.maximized decoration,
+window.csd.tiled decoration { border-radius: 0; }
+headerbar { border-top-left-radius: 6px; border-top-right-radius: 6px; }
+window.maximized headerbar,
+window.tiled headerbar { border-radius: 0; }
+
+/* ---- 7. Checkboxes and radio buttons: the theme's own 16x16 PNGs ---- */
+check,
+radio {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 2px;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  -gtk-icon-source: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+check              { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/checkbox-unchecked.png"); }
+check:checked      { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/checkbox-checked.png"); }
+check:indeterminate { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/checkbox-mixed.png"); }
+check:disabled     { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/checkbox-unchecked-insensitive.png"); }
+check:checked:disabled { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/checkbox-checked-insensitive.png"); }
+check:indeterminate:disabled { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/checkbox-mixed-insensitive.png"); }
+radio              { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/radio-unchecked.png"); }
+radio:checked      { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/radio-checked.png"); }
+radio:indeterminate { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/radio-mixed.png"); }
+radio:disabled     { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/radio-unchecked-insensitive.png"); }
+radio:checked:disabled { background-image: url("file://@HOME@/.themes/OS-X-Leopard-1.2/gtk-3.20/assets/radio-checked-insensitive.png"); }
+
+/* ---- 8. Text fields: inset field with the blue Aqua focus glow ---- */
+entry,
+spinbutton,
+searchbar > revealer > box entry {
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 1px solid #808080;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+entry:focus-within,
+spinbutton:focus-within {
+  border-color: #4D90DD;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(77, 144, 221, 0.55);
+}
+selection,
+text selection { color: #000000; background-color: #B4D5FE; }
+
+/* ---- 9. Scrollbars, progress bars, sliders: Aqua blue pills ---- */
+scrollbar slider {
+  min-width: 9px;
+  min-height: 9px;
+  border: 1px solid #2F5C9A;
+  border-radius: 10px;
+  background-color: #4A82C8;
+  background-image: linear-gradient(to right, #A9CBF2, #5C9BE3 50%, #3A78C6);
+}
+scrollbar.horizontal slider {
+  background-image: linear-gradient(to bottom, #A9CBF2, #5C9BE3 50%, #3A78C6);
+}
+scrollbar slider:hover { border-color: #234A80; }
+scrollbar slider:backdrop {
+  border-color: #A0A0A0;
+  background-image: linear-gradient(to bottom, #E2E2E2, #BDBDBD);
+}
+progressbar trough,
+scale trough {
+  min-height: 10px;
+  border: 1px solid #8E8E8E;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+  background-image: linear-gradient(to bottom, #BEBEBE, #E8E8E8);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+progressbar progress,
+scale highlight {
+  border: 1px solid #2563AE;
+  border-radius: 10px;
+  background-color: #4A82C8;
+  background-image: linear-gradient(to bottom, #A9CBF2, #5C9BE3 50%, #2F77CF 50%, #6FB0F3);
+  box-shadow: none;
+}
+scale slider {
+  min-width: 16px;
+  min-height: 16px;
+  border: 1px solid #808080;
+  border-radius: 100%;
+  background-color: #FFFFFF;
+  background-image: linear-gradient(to bottom, #FFFFFF, #F7F7F7 30%, #EDEDED 40%, #FFFFFF 90%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- 10. Source-list sidebars (Finder blue-grey) and tabs ---- */
+.sidebar-pane,
+.navigation-sidebar { background-color: #D6DDE5; }
+notebook > header { background-color: #EDEDED; border-color: #A0A0A0; }
+notebook > header > tabs > tab:checked {
+  color: #FFFFFF;
+  background-color: #2563AE;
+  background-image: linear-gradient(to bottom, #3690FC, #2C77D1);
+  border-radius: 40px;
+}
